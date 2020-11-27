@@ -8,7 +8,6 @@ pipeline {
 	  }
 	options {
 	  buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '7')
-#	  timestamps()
 	}
 	stages {
 	  stage("First step") {
