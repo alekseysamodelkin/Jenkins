@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@ub1 \'pwd\''
+                sh 'ssh tomcat \'pwd\''
             }
         }
         stage("Second step") {
