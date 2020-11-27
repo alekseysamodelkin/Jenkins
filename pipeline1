@@ -1,20 +1,25 @@
 #!groovy
-// Check tomcat propirties
+// Check tomcat properties
 properties([disableConcurrentBuilds()])
 
 pipeline {
-	agent {
-	  label 'master'
-	  }
-	options {
-	  buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '7')
-	}
-	stages {
-	  stage("First step") {
-	    steps {
-	      sh 'ssh tomcat \'uname -a\''
-	    }
-
-	  }
-	}
+    agent { 
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '7'))
+        timestamps()
+    }
+    stages {
+        stage("First step") {
+            steps {
+                sh 'ssh root@ub1 \'pwd\''
+            }
+        }
+        stage("Second step") {
+            steps {
+                sh 'ssh tomcat \'uname -a\''
+            }
+        }
+    }
 }
