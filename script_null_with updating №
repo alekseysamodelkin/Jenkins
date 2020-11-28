@@ -1,0 +1,5 @@
+job = Jenkins.instance.getItemByFullName("Deploy_Tomcat")
+job.builds.each()  { build ->
+  build.delete()
+}
+job.updateNextBuildNumber(1)
